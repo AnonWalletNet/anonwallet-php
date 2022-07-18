@@ -1,0 +1,24 @@
+{
+    "name": "anonwallet/anonwallet-php",
+    "description": "Official PHP SDK for AnonWallet anonymous cryptocurrency payment gateway",
+    "type": "library",
+    "keywords": ["anonwallet", "php", "anonuymous", "cryptocurrency", "payment gateway", "api"],
+    "homepage": "https://anonwallet.net/",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "AnonWallet": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "AnonWallet",
+            "email": "support@anonwallet.net"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
