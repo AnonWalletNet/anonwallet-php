@@ -1,6 +1,6 @@
 ﻿# anonwallet-php
 
-Official PHP SDK of AnonWallet.Net Anonymous Payment Gateway
+Official PHP SDK of AnonWallet.Net Cryptocurrency Anonymous Payment Gateway
 
 ## Install guide
 You can install anonwallet plugin using composer in your project using:
