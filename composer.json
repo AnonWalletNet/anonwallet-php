@@ -7,7 +7,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "AnonWallet": "src/"
+            "AnonWallet\\": "src/"
         }
     },
     "authors": [
