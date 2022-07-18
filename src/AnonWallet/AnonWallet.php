@@ -32,11 +32,8 @@ class AnonWallet {
             throw new \Exception('Api key is required');
         }
 
-        if(!function_exists(curl_version)) {
-            throw new \Exception('php-curl is not enabled. You need to install it to use this plugin!');
-        }
+        //PHP Curl must be installed in your system
         
-        $this->currency = $default_currency;
     }
 
     /**
@@ -49,7 +46,7 @@ class AnonWallet {
         $url = $this->url.$this->version.'/balance';
     
         $payload = [
-            'currency'=>(isset($currency)) ? $currency : $this->currency
+            'currency'=>(isset($currency)) ? $currency : $this->default_currency
         ];
 
         $res = $this->curl_call($url, $payload);
@@ -76,7 +73,7 @@ class AnonWallet {
         $url = $this->url.$this->version.'/callback_address';
 
         $payload = [
-            'currency'=>(isset($currency)) ? $currency : $this->currency,
+            'currency'=>(isset($currency)) ? $currency : $this->default_currency,
             'forward_address' => $forward_address,
             'ipn_url' => $ipn_url,
             'label' => $label
@@ -104,7 +101,7 @@ class AnonWallet {
 
         $payload = [
             'amount'=>$amount,
-            'currency'=>(isset($currency)) ? $currency : $this->currency,
+            'currency'=>(isset($currency)) ? $currency : $this->default_currency,
             'forward_address'=>$forward_address,
             'ipn_url'=>$ipn_url,
             'invoice_id'=>$invoice_id,
@@ -142,7 +139,7 @@ class AnonWallet {
 
         $payload = [
             'amount'=>$amount,
-            'currency'=>(isset($currency)) ? $currency : $this->currency,
+            'currency'=>(isset($currency)) ? $currency : $this->default_currency,
             'address'=>$address,
             'ipn_url'=>$ipn_url
         ];
@@ -154,8 +151,8 @@ class AnonWallet {
     /**
      * 
      * @param string $url
-     * @param array $post parameters
-     * @return array()
+     * @param array $payload parameters
+     * @return json
      */
     public function curl_call($url, $payload = '') {
 
