@@ -144,7 +144,7 @@ class AnonWallet {
             'ipn_url'=>$ipn_url
         ];
 
-        $res = $this->call($url, $payload);
+        $res = $this->curl_call($url, $payload);
         return $res;
     }
 
